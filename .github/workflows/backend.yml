@@ -4,9 +4,25 @@ on:
   push:
     branches:
       - main
-  
+
+# ワークディレクトリをbackendに設定
+defaults:
+  run:
+    working-directory: backend
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo hello world
+    　# Git checkout
+      - uses: actions/checkout@v3
+      # セットアップ
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      # パッケージの依存関係をインストール
+      - run: npm ci
+      # テスト実行
+      - run: npm run test
+      # ビルド実行
+      - run: npm run build
