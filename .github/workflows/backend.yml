@@ -27,13 +27,14 @@ jobs:
       - run: npm ci
       # テスト実行
       - run: npm run test -- --coverage
-      # nodejs 実行
-      - run: node dist/index.js &
-      - run: npx wait-on -t 10000 http://localhost:8080/api/health
       # テストAPI実行
       - run: npm run test:api
       # ビルド実行
       - run: npm run build
+      # nodejs 実行
+      - run: node dist/index.js &
+      - run: npx wait-on -t 10000 http://localhost:8080/api/health
+
       # テスト結果をアーティファクトに保存
       - uses: actions/upload-artifact@v3
         if: always()
