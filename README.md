@@ -1,3 +1,3 @@
 # udemy-github-actions
 
-Gitの練習
+[![backend](https://github.com/takepang/udemy-github-actions/actions/workflows/backend.yml/badge.svg)](https://github.com/takepang/udemy-github-actions/actions/workflows/backend.yml)
