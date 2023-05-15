@@ -53,7 +53,7 @@ jobs:
   deploy:
     # buildジョブ成功後に実行
     needs: build
-    if: github.event_node == 'push'
+    if: github.event_name == 'push'
     runs-on: ubunth:latest
     steps:
       # SSH鍵の設定
