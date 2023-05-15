@@ -23,7 +23,7 @@ jobs:
       # パッケージの依存関係をインストール
       - run: npm ci
       # テスト実行
-      - run: npm run test
+      - run: npm run test -- --coverage
       # ビルド実行
       - run: npm run build
       # テスト結果をアーティファクトに保存
