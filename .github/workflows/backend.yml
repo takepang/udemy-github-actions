@@ -56,6 +56,12 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
+      # ビルド成果物をアーティファクトからダウンロード
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: backend/dist
+
       # SSH鍵の設定
       - uses: shimataro/ssh-key-action@v2
         with:
