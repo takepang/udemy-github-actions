@@ -28,6 +28,7 @@ jobs:
       - run: npm run build
       # テスト結果をアーティファクトに保存
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: coverage
           path: backend/coverage/**
