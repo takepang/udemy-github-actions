@@ -26,3 +26,15 @@ jobs:
       - run: npm run test
       # ビルド実行
       - run: npm run build
+      # テスト結果をアーティファクトに保存
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: backend/coverage/**
+          retention-days: 5
+      # ビルド成果物をアーティファクトに保存
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: backend/dist/index.js
+          retention-days: 5
