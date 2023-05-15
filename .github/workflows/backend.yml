@@ -54,7 +54,7 @@ jobs:
     # buildジョブ成功後に実行
     needs: build
     if: github.event_name == 'push'
-    runs-on: ubunth:latest
+    runs-on: ubuntu-latest
     steps:
       # SSH鍵の設定
       - uses: shimataro/ssh-key-action@v2
