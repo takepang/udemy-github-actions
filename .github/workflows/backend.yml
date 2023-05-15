@@ -65,17 +65,17 @@ jobs:
       # ソースファイル転送
       - run: rsync -v dist/index.js ${SERVER_USER}@${SERVER_IP}:~/index.js
         env:
-          SERVER_USER: ${{ env.BACKEND_SERVER_USER }}
-          SERVER_IP: ${{ env.BACKEND_SERVER_IP }}
+          SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
+          SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
           
       # サービス再起動
       - run: ssh ${SERVER_USER}@${SERVER_IP} sudo systemctl restart backend.service
         env:
-          SERVER_USER: ${{ env.BACKEND_SERVER_USER }}
-          SERVER_IP: ${{ env.BACKEND_SERVER_IP }}
+          SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
+          SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
           
       # サービス起動確認
       - run: ssh ${SERVER_USER}@${SERVER_IP} sudo systemctl status backend.service
         env:
-          SERVER_USER: ${{ env.BACKEND_SERVER_USER }}
-          SERVER_IP: ${{ env.BACKEND_SERVER_IP }}
+          SERVER_USER: ${{ secrets.BACKEND_SERVER_USER }}
+          SERVER_IP: ${{ secrets.BACKEND_SERVER_IP }}
