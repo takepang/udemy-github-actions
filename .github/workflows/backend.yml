@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    # backend、.githubディレクトリに変更があった場合にトリガーとしてパイプライン実行
+    paths:
+      - 'backend/**'
+      - '.github/**'
+
   schedule:
     # 日本時間で毎晩 21時(UTC)
     - cron: '0 12 * * *'

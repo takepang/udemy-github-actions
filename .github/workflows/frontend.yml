@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    # frontend、.githubディレクトリに変更があった場合にトリガーとしてパイプライン実行
+    paths:
+      - 'frontend/**'
+      - '.github/**'
 
 # ワークディレクトリをfrontendに設定
 defaults:
