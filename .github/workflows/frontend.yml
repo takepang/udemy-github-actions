@@ -10,6 +10,10 @@ defaults:
   run:
     working-directory: frontend
 
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+  
 jobs:
   # デプロイジョブ
   deploy:
@@ -17,8 +21,10 @@ jobs:
     steps:
       # Git checkout
       - uses: actions/checkout@v3
+      # IDプロバイダの設定
+      - uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::800457662720:role/udemy-github-actions-deployment-role
+          aws-region: ap-northeast-1
       # S3へデプロイ
       - run: aws s3 sync . s3://udemy-github-actions-s3-takepang --exact-timestamps --region ap-northeast-1
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.FRONTEND_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.FRONTEND_AWS_SECRET_ACCESS_KEY }}
