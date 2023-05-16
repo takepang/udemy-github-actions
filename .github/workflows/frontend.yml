@@ -15,5 +15,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Git checkout
+      - uses: actions/checkout@v3
       # S3へデプロイ
       - run: aws s3 sync . s3://udemy-github-actions-s3-takepang --exect-timestamps --region ap-northeast-1
