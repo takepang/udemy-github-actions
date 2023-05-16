@@ -9,9 +9,9 @@ on:
       - 'backend/**'
       - '.github/**'
 
-  schedule:
-    # 日本時間で毎晩 21時(UTC)
-    - cron: '0 12 * * *'
+#  schedule:
+#    # 日本時間で毎晩 21時(UTC)
+#    - cron: '0 12 * * *'
 
 # ワークディレクトリをbackendに設定
 defaults:
