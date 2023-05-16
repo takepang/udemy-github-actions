@@ -1,0 +1,19 @@
+name: frontend
+
+on:
+  push:
+    branches:
+      - main
+
+# ワークディレクトリをfrontendに設定
+defaults:
+  run:
+    working-directory: frontend
+
+jobs:
+  # デプロイジョブ
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # S3へデプロイ
+      - run: aws s3 sync . s3://udemy-github-actions-s3-takepang --exect-timestamps --region ap-northeast-1
