@@ -2,8 +2,10 @@ name: backend
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+    #branches:
+    #  - main
     # backend、.githubディレクトリに変更があった場合にトリガーとしてパイプライン実行
     paths:
       - 'backend/**'
