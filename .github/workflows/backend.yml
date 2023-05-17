@@ -22,6 +22,8 @@ defaults:
 
 jobs:
   build:
+    environment:
+      name: production  
     runs-on: ubuntu-latest
     steps:
       # Git checkout

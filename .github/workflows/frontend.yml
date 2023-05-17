@@ -1,6 +1,5 @@
 name: frontend
 
-# tagに変更
 on:
   push:
     tags:
@@ -24,6 +23,8 @@ permissions:
 jobs:
   # デプロイジョブ
   deploy:
+    environment:
+      name: production
     runs-on: ubuntu-latest
     steps:
       # Git checkout
